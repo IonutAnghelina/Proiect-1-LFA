@@ -31,9 +31,9 @@ def readDFA(inputFile):
         transitions[line[0]][line[2]] = line[1]
 
     initialState = inputFile.readline().split()[0].strip()
-    inputFilealStates = [x.strip() for x in inputFile.readline().split()]
+    finalStates = [x.strip() for x in inputFile.readline().split()][1:]
 
-    return (sorted(list(states)), sorted(list(alphabet)), transitions, initialState, inputFilealStates)
+    return (sorted(list(states)), sorted(list(alphabet)), transitions, initialState, finalStates)
 
 
 def process(DFAutomaton, word, currentState, currentStack, outputFile):
